@@ -49,8 +49,7 @@ namespace Application.Services
             }
 
             TypeAdapterConfig<Salary, SalaryResponseDTO>.NewConfig().Map(dest => dest.Date, src => src.DateSalary.DateTimeToShamsi());
-            var a= salary.Adapt<SalaryResponseDTO>();
-            return a;
+            return salary.Adapt<SalaryResponseDTO>();
         }
 
         public async Task<List<SalaryResponseDTO>> GetRangeAsync(string fromDate,string toDate)
@@ -114,6 +113,7 @@ namespace Application.Services
             double income= basicSalary + allowance + transportation - overTime;
             return income;
         }
+        
         private double GetOverTime(string type, double basicSalary, double allowance)
         {
             double overtime = 0;
